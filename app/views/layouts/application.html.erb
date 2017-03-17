@@ -10,5 +10,11 @@
 
   <body>
     <%= yield %>
+    <% if current_user %>
+      Signed in as <%= current_user.username %> | <%= link_to "Logout", '/logout' %> | <%= link_to "Episodes", '/episodes' %> | <%= link_to "Guests", '/guests' %> | <%= link_to "Create an appearance", '/appearances/new' %>
+    <% else %>
+      <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+    <% end %>
+
   </body>
 </html>
